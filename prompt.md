@@ -13,7 +13,7 @@ Debes entregarme un proyecto dividido en carpetas y archivos de la siguiente for
   │     ├── js/
   │     │     └── main.js
   │     ├── images/
-  │     │     └── placeholder.png
+  │     │     └── placeholder.svg
   │     ├── translations/
   │     │     ├── en.json
   │     │     └── es.json
@@ -22,7 +22,7 @@ Debes entregarme un proyecto dividido en carpetas y archivos de la siguiente for
 * `index.html`: home principal con todo el copy que te paso abajo. 
 * `assets/css/style.css`: estilos optimizados (responsive, mobile-first, accesible, buen contraste).
 * `assets/js/main.js`: interactividad básica (scroll suave, menús, cambio de idioma con `translations/en.json` y `es.json`).
-* `assets/images/placeholder.png`: usa esta imagen por defecto en todos los `img`:
+* `assets/images/placeholder.svg`: usa esta imagen por defecto en todos los `img`:
   👉 `https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png`
   **Indícame qué debo reemplazar en cada caso con la imagen real del cliente** (ejemplo: logo, mockups, casos de estudio).
 
