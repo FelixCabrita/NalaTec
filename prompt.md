@@ -32,13 +32,8 @@ Debes entregarme un proyecto dividido en carpetas y archivos de la siguiente for
 * **SEO optimizado**: meta tags, title dinámico, descripción, Open Graph básico, estructura Hn correcta, sitemap básico.
 * **Performance**: carga rápida, lazy load en imágenes, CSS minificado, sin dependencias pesadas.
 * **Accesibilidad**: uso de `alt` en imágenes, contraste suficiente, navegación con teclado.
-* **Traducciones**: el contenido debe poder alternar entre **español (es.json)** y **inglés (en.json)** desde un botón o toggle en el header.
-
-Colores:
-Primary: #FFD700 (Dorado) Base Dark: #1A1A1A (Carbón) Neutros: #121212, #2A2A2A, #F7F7F7, #EDEDED Acento opcional: #00E5FF (para microdetalles o hover sutil)
-
-
-
+* **Traducciones**: el contenido debe poder alternar entre **español (es.json)** y **inglés (en.json)** desde un botón o toggle en el header. 
+ 
 ### 📝 Copy de la página
 
 Usa exactamente este contenido y distribúyelo en secciones dentro de `index.html`. Respeta títulos, subtítulos, párrafos, bullets, CTAs y microcopys:
