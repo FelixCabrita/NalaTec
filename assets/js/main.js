@@ -64,7 +64,7 @@
                 "results.title": "¿Qué vas a conseguir en 5–7 días?",
                 "results.item1": "Un mensaje claro y un diseño moderno que genera confianza.",
                 "results.item2": "Una estructura probada: hero potente, beneficios, prueba social, oferta, FAQ y CTA.",
-                "results.item3": "Puntos de contacto integrados (WhatsApp, email, CRM).",
+                "results.item3": "Puntos de contacto integrados (WhatsApp, email).",
                 "results.item4": "Métricas de rendimiento (Lighthouse) y eventos básicos en GA4.",
                 "results.item5": "Un entregable listo para campañas (Google, Meta, email, orgánico).",
                 "results.disclaimer": "Los resultados varían según sector y tráfico. Medimos, aprendemos y optimizamos.",
