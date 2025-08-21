@@ -51,7 +51,7 @@ La transformación digital no tiene que ser cara. Diseñamos y desarrollamos tu 
 
 * ⚡ Carga rápida (objetivo LCP < 2.5s)
 * 🎯 Copy orientado a conversión
-* 🧩 Integración con WhatsApp/Email/CRM
+* 🧩 Integración con WhatsApp/Email
 
 **CTA primario:** **Quiero mi landing**
 **CTA secundario:** Ver lo que incluye
