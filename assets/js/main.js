@@ -227,7 +227,7 @@
                 "results.title": "What will you get in 5–7 days?",
                 "results.item1": "A clear message and modern design that builds trust.",
                 "results.item2": "A proven structure: powerful hero, benefits, social proof, offer, FAQ and CTA.",
-                "results.item3": "Integrated contact points (WhatsApp, email, CRM).",
+                "results.item3": "Integrated contact points (WhatsApp, email).",
                 "results.item4": "Performance metrics (Lighthouse) and basic GA4 events.",
                 "results.item5": "A deliverable ready for campaigns (Google, Meta, email, organic).",
                 "results.disclaimer": "Results vary by sector and traffic. We measure, learn and optimize.",
