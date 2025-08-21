@@ -16,24 +16,70 @@
 
     // Initialize application
     function initializeApp() {
+        // Primero configurar las traducciones básicas de emergencia
+        if (Object.keys(translations).length === 0) {
+            setupFallbackTranslations();
+        }
+        
+        // Configurar eventos inmediatamente
+        setupEventListeners();
+        setupSmoothScrolling();
+        setupMobileMenu();
+        setupLanguageToggle();
+        setupFormHandling();
+        setupScrollAnimations();
+        setupLazyLoading();
+        
+        // Cargar traducciones completas y actualizar
         loadTranslations()
             .then(() => {
-                setupEventListeners();
-                setupSmoothScrolling();
-                setupMobileMenu();
-                setupLanguageToggle();
-                setupFormHandling();
-                setupScrollAnimations();
-                setupLazyLoading();
-                
-                // Set initial language
+                // Set initial language después de cargar
                 setLanguage(currentLanguage);
-                
                 console.log('NalaTec Landing initialized successfully');
             })
             .catch(error => {
-                console.error('Error initializing app:', error);
+                console.error('Error loading translations, using fallback:', error);
+                // Usar las traducciones de emergencia que ya están configuradas
+                setLanguage(currentLanguage);
             });
+    }
+
+    // Setup fallback translations immediately
+    function setupFallbackTranslations() {
+        translations = {
+            es: {
+                "nav.services": "Servicios",
+                "nav.process": "Proceso", 
+                "nav.pricing": "Precios",
+                "nav.cases": "Casos",
+                "nav.faq": "FAQ",
+                "cta.primary": "Quiero mi landing",
+                "cta.secondary": "Ver lo que incluye",
+                "hero.title": "<strong>Landing Express NalaTec</strong> – lanza una página que <strong>convierte</strong> en 5–7 días",
+                "hero.subtitle": "La transformación digital no tiene que ser cara. Diseñamos y desarrollamos tu landing optimizada para velocidad, SEO y conversiones, a un precio accesible.",
+                "hero.benefit1": "⚡ Carga rápida (objetivo LCP < 2.5s)",
+                "hero.benefit2": "🎯 Copy orientado a conversión", 
+                "hero.benefit3": "🧩 Integración con WhatsApp/Email/CRM",
+                "hero.trust": "Sin sorpresas: alcance cerrado, 2 rondas de revisión, soporte 30 días.",
+                "footer.copyright": "© NalaTec. Tecnología accesible, resultados reales."
+            },
+            en: {
+                "nav.services": "Services",
+                "nav.process": "Process",
+                "nav.pricing": "Pricing", 
+                "nav.cases": "Cases",
+                "nav.faq": "FAQ",
+                "cta.primary": "I want my landing",
+                "cta.secondary": "See what's included",
+                "hero.title": "<strong>Landing Express NalaTec</strong> – launch a page that <strong>converts</strong> in 5–7 days",
+                "hero.subtitle": "Digital transformation doesn't have to be expensive. We design and develop your landing page optimized for speed, SEO and conversions, at an affordable price.",
+                "hero.benefit1": "⚡ Fast loading (LCP < 2.5s target)",
+                "hero.benefit2": "🎯 Conversion-oriented copy",
+                "hero.benefit3": "🧩 WhatsApp/Email/CRM integration", 
+                "hero.trust": "No surprises: closed scope, 2 revision rounds, 30-day support.",
+                "footer.copyright": "© NalaTec. Accessible technology, real results."
+            }
+        };
     }
 
     // Load translations
@@ -47,11 +93,39 @@
             translations.es = await esResponse.json();
             translations.en = await enResponse.json();
         } catch (error) {
-            console.error('Error loading translations:', error);
-            // Fallback translations
+            console.error('Error loading translations, using fallback:', error);
+            // Fallback translations completas
             translations = {
-                es: { 'cta.primary': 'Quiero mi landing' },
-                en: { 'cta.primary': 'I want my landing' }
+                es: {
+                    "nav.services": "Servicios",
+                    "nav.process": "Proceso", 
+                    "nav.pricing": "Precios",
+                    "nav.cases": "Casos",
+                    "nav.faq": "FAQ",
+                    "cta.primary": "Quiero mi landing",
+                    "cta.secondary": "Ver lo que incluye",
+                    "hero.title": "<strong>Landing Express NalaTec</strong> – lanza una página que <strong>convierte</strong> en 5–7 días",
+                    "hero.subtitle": "La transformación digital no tiene que ser cara. Diseñamos y desarrollamos tu landing optimizada para velocidad, SEO y conversiones, a un precio accesible.",
+                    "hero.benefit1": "⚡ Carga rápida (objetivo LCP < 2.5s)",
+                    "hero.benefit2": "🎯 Copy orientado a conversión", 
+                    "hero.benefit3": "🧩 Integración con WhatsApp/Email/CRM",
+                    "hero.trust": "Sin sorpresas: alcance cerrado, 2 rondas de revisión, soporte 30 días."
+                },
+                en: {
+                    "nav.services": "Services",
+                    "nav.process": "Process",
+                    "nav.pricing": "Pricing", 
+                    "nav.cases": "Cases",
+                    "nav.faq": "FAQ",
+                    "cta.primary": "I want my landing",
+                    "cta.secondary": "See what's included",
+                    "hero.title": "<strong>Landing Express NalaTec</strong> – launch a page that <strong>converts</strong> in 5–7 days",
+                    "hero.subtitle": "Digital transformation doesn't have to be expensive. We design and develop your landing page optimized for speed, SEO and conversions, at an affordable price.",
+                    "hero.benefit1": "⚡ Fast loading (LCP < 2.5s target)",
+                    "hero.benefit2": "🎯 Conversion-oriented copy",
+                    "hero.benefit3": "🧩 WhatsApp/Email/CRM integration", 
+                    "hero.trust": "No surprises: closed scope, 2 revision rounds, 30-day support."
+                }
             };
         }
     }
@@ -227,7 +301,20 @@
     // Get translation
     function getTranslation(key, lang) {
         const langTranslations = translations[lang] || translations.es;
-        return langTranslations[key] || key;
+        if (langTranslations && langTranslations[key]) {
+            return langTranslations[key];
+        }
+        
+        // Si no encuentra la traducción, buscar en el idioma alternativo
+        const fallbackLang = lang === 'es' ? 'en' : 'es';
+        const fallbackTranslations = translations[fallbackLang];
+        if (fallbackTranslations && fallbackTranslations[key]) {
+            return fallbackTranslations[key];
+        }
+        
+        // Como último recurso, devolver el key sin los puntos
+        console.warn(`Translation not found for key: ${key}`);
+        return key.split('.').pop();
     }
 
     // Setup form handling
