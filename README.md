@@ -218,4 +218,3 @@ Para dudas sobre la implementación:
 ---
 
 **NalaTec - De ideas a proyectos digitales**  
-Proyecto generado siguiendo especificaciones exactas del prompt ✅
